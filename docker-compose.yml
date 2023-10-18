@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  utils:
+    build:
+      context: .
+    volumes:
+      - .:/app
+    environment:
+      # Environment must be supplied just to satisfy render-config-dev which
+      # needs these to populate the config!
+      # They may be left unsatisfied, however, for most uses.
+      - KBASE_ENDPOINT
+      - KBASE_AUTH_TOKEN
+    command:
+      - bash
