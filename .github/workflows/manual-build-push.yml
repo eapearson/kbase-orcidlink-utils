@@ -27,7 +27,7 @@
                   id: meta
                   uses: docker/metadata-action@v5
                   with:
-                      images: kbase/kbase-orcidlink-utils
+                      images: ghcr.io/eapearson/kbase-orcidlink-utils
 
                 - name: Build and push
                   uses: docker/build-push-action@v5
