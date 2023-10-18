@@ -7,7 +7,7 @@
             runs-on: ubuntu-latest
             steps:
                 - name: Check out GitHub Repo
-                  uses: actions/checkout@v3
+                  uses: actions/checkout@v4
 
                 - name: Get current date
                   id: date
@@ -23,17 +23,23 @@
                       username: '${{ secrets.GHCR_USERNAME }}'
                       password: '${{ secrets.GHCR_TOKEN }}'
 
+                - name: Extract metadata 
+                  id: meta
+                  uses: docker/metadata-action@v5
+                  with:
+                      images: kbase/kbase-orcidlink-utils
+
                 - name: Build and push
-                  uses: docker/build-push-action@v3
+                  uses: docker/build-push-action@v5
                   with:
                       context: .
                       file: ./Dockerfile
-                      pull: true
                       push: true
                       build-args: |
                           BUILD_DATE=${{ steps.date.outputs.date }}
                           VCS_REF=${{ github.sha }}
                           BRANCH='${{ github.ref }}'
                           TAG='${{ github.ref }}'
-                      tags: '${{ github.ref_name }}'
+                      labels: '${{ steps.meta.outputs.labels }}'
+                      tags: '${{ steps.meta.outputs.tags}}'
     
