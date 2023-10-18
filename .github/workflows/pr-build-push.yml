@@ -1,5 +1,5 @@
 ---
-    name: PR to main
+    name: PR to main build and push image
     on:
       pull_request:
         branches:

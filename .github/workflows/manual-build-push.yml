@@ -1,5 +1,5 @@
 ---
-    name: PR to main
+    name: Manual build and push image
     on:
       workflow_dispatch:
     jobs:
@@ -35,5 +35,5 @@
                           VCS_REF=${{ github.sha }}
                           BRANCH='${{ github.ref }}'
                           TAG='${{ github.ref }}'
-                          tags: '${{ github.ref_name }}'
+                      tags: '${{ github.ref_name }}'
     
