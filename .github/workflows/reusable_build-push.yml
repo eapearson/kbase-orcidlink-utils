@@ -42,7 +42,7 @@
                           const username = '${{ github.event.repository.owner.login }}';
                           const repoName = '${{ inputs.name }}';
                           return tags.map((tag) => {
-                            return `ghcr.io/${username}/${repoName}:${tag}`;
+                            return `ghcr.io/${username.toLowerCase()}/${repoName.toLowerCase()}:${tag}`;
                           }).join(',');
 
                 - name: Build and push
