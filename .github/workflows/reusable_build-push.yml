@@ -57,5 +57,5 @@
                           VCS_REF=${{ github.sha }}
                           BRANCH='${{ github.ref }}'
                           TAG='${{ github.ref }}'
-                      tags: 
+                      tags: '${{ steps.tags.outputs.result }}'
     
