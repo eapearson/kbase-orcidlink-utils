@@ -8,4 +8,5 @@ jobs:
         with:
           name: '${{ github.event.repository.name }}'
           tags: 'manual-${{ github.ref_name }}'
+        secrets: inherit
     
