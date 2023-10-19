@@ -11,4 +11,7 @@ on:
 jobs:
     build-push-image:
       uses: ./.github/workflows/reusable_build-push.yml
+      with:
+        name: '${{ github.event.repository.name }}'
+        tags: 'pr-${{ github.event.number }}'
     

@@ -13,4 +13,7 @@ jobs:
   build-push-image:
     needs: validate-release-tag
     uses: ./.github/workflows/reusable_build-push.yml
+    with:
+      name: '${{ github.event.repository.name }}'
+      tags: '${{ github.event.release.tag_name }},latest'
   
