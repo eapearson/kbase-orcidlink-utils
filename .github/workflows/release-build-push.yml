@@ -1,0 +1,16 @@
+---
+name: PR to main build and push image
+on:
+  release:
+    branches:
+      - main
+    types: [ published ]
+jobs:
+  validate-release-tag:
+    uses: ./.github/workflows/reusable_validate-release-tag.yml
+    with:
+      release_tag: '${{ github.event.release.tag_name }}'
+  build-push-image:
+    needs: validate-release-tag
+    uses: ./.github/workflows/reusable_build-push.yml
+  
