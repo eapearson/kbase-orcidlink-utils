@@ -12,4 +12,5 @@ RUN pip install -r requirements.txt
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 
+# If you don't run the image with a command, it drops into bash.
 CMD ["bash"]
