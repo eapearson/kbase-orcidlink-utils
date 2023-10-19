@@ -17,6 +17,8 @@ To run with docker:
 docker build . -t kbase/kbase-orcidlink-utils 
 ```
 
+An example of running database maintenance against CI:
+
 ```shell
 KBASE_AUTH_TOKEN=TOKEN_HERE \
 KBASE_ENDPOINT=https://ci.kbase.us/services/  \
@@ -43,7 +45,7 @@ created. The release build will have a name like `ghcr.io/kbase/kbase-orcidlink-
 The following environment variables must be set:
 
 - `KBASE_AUTH_TOKEN` must be set to a KBase auth token (preferably a service token) with
-  the role `orcidlink_manager`
+  the custom role `ORCIDLINK_MANAGER`
 
 - `KBASE_ENDPOINT` must be set to the KBase services base URL for the given deployment
   environment; e.g. for `ci` it should be `https://ci.kbase.us/services/`. Note that the
